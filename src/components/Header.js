@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { motion } from "framer-motion";
+
 export const Header = () => {
   return (
     <header>
@@ -19,9 +21,22 @@ export const Header = () => {
           </svg>
         </div>
       </Link>
-      <div className="title">
-        <h1>Pizza Motion</h1>
-      </div>
+      <motion.div
+        initial={{ y: -400 }}
+        animate={{
+          y: -10,
+        }}
+        transition={{ delay: 0.4 }}
+        className="title"
+      >
+        <motion.h1
+          whileHover={{
+            textShadow: "0px 0px 15px rgb(255,255,255)",
+          }}
+        >
+          Pizza Motion
+        </motion.h1>
+      </motion.div>
     </header>
   );
 };
